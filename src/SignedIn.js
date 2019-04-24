@@ -49,11 +49,12 @@ class SignedIn extends Component {
   saveMe(me) {
     this.setState({me, savingMe: true})
     const options = { encrypt: false }
-    this.userSession.putFile(ME_FILENAME, JSON.stringify(me), options)
+    this.userSession.putFile('me.json', JSON.stringify(me), options)
     .finally(() => {
       this.setState({savingMe: false})
     })
   }
+
 
   signOut(e) {
     e.preventDefault()
